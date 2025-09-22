@@ -23,7 +23,7 @@
       networkmanagerapplet # nm-applet
       blueman           # Bluetooth manager
       xwayland          # For X11 apps
-      gnome.nautilus    # Alternative to caja (caja needs more setup)
+      nautilus          # Alternative to caja (caja needs more setup)
       foot              # Terminal (wayland native alternative)
     ];
   };

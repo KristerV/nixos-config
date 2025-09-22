@@ -56,7 +56,7 @@
     powerstat
 
     # File managers
-    gnome.nautilus  # Replacing caja
+    nautilus  # Replacing caja
 
     # Cloud CLIs
     azure-cli
