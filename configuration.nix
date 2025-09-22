@@ -49,8 +49,7 @@
   # Allow unfree packages (needed for Discord, Slack, etc)
   nixpkgs.config.allowUnfree = true;
 
-  # Enable sound
-  sound.enable = true;
+  # Enable sound (pipewire handles this now)
   hardware.pulseaudio.enable = false; # Using pipewire instead
   security.rtkit.enable = true;
   services.pipewire = {

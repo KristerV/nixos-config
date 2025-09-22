@@ -84,8 +84,7 @@
   services.seatd.enable = true;
 
   # Video drivers (for VM, will auto-detect)
-  hardware.opengl = {
+  hardware.graphics = {
     enable = true;
-    driSupport = true;
   };
 }
