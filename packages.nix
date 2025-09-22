@@ -26,7 +26,7 @@
     # Communication
     discord
     slack
-    teams
+    teams-for-linux
 
     # Editors and IDEs
     vscode
@@ -41,10 +41,11 @@
     cheese
 
     # Office
-    freeoffice  # If available, else libreoffice
+    # freeoffice  # Not in nixpkgs, use libreoffice
+    libreoffice
 
     # Database tools
-    dbeaver
+    dbeaver-bin
     # beekeeper-studio # May need to build from source
 
     # System tools
@@ -60,8 +61,10 @@
 
     # Cloud CLIs
     azure-cli
-    flyctl
-    stripe-cli
+    # flyctl  # May need from unstable
+    # flyctl
+    # stripe-cli  # Not in stable
+    # stripe-cli
 
     # Utilities
     jq
