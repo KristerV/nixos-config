@@ -1,23 +1,33 @@
 # Instructions for Claude Code Agent
 
 ## Context
-You are helping fix a NixOS configuration that was migrated from Arch Linux with Sway window manager. The user is running NixOS in a VM and the configuration has package name errors and compatibility issues.
+You are helping set up NixOS from a fresh install with Sway window manager. The user reverted to a snapshot right after initial install and wants to build the system step by step.
 
 ## Current Situation
-- NixOS VM is running with basic system
-- Configuration files are in `/etc/nixos/` and also in `~/nixos-config/` git repo
-- Main files: `configuration.nix`, `sway.nix`, `packages.nix`, `minimal.nix`
-- `sudo nixos-rebuild switch` is failing with various package errors
-- Goal: Get a working Sway desktop environment
+- Fresh NixOS VM with "No Desktop" install
+- No git initially installed, minimal packages only
+- Configuration files will be in `~/nixos-config/` git repo after cloning
+- Goal: Build a working Sway desktop environment INCREMENTALLY
+- **CRITICAL**: Never break the working system - each step must build successfully
 
-## Your Tasks
+## Your Tasks - STEP BY STEP APPROACH
 
-### 1. First Priority: Fix Rebuild Errors
-- Run `sudo nixos-rebuild switch` and capture errors
-- Fix package name issues one by one:
-  - Search for correct package names: `nix search nixpkgs packagename`
-  - Check if packages exist in current NixOS version
-  - Comment out packages that don't exist rather than failing entire build
+### Phase 1: Basic System Setup
+1. Help user install git: `nix-env -iA nixos.git`
+2. Clone configs: `git clone https://github.com/KristerV/nixos-config.git`
+3. Install Claude Code with install script
+4. Apply minimal.nix: `sudo cp minimal.nix /etc/nixos/configuration.nix && sudo nixos-rebuild switch`
+
+### Phase 2: Add Sway Desktop
+1. Copy sway-minimal.nix and add import to configuration.nix
+2. Test rebuild - fix any issues before proceeding
+3. Test Sway startup works
+
+### Phase 3: Add Applications Gradually
+1. Add packages in SMALL groups (3-5 at a time)
+2. Test each group with `sudo nixos-rebuild switch`
+3. If ANY package fails, comment it out and continue
+4. Search for correct names: `nix search nixpkgs packagename`
 
 ### 2. Package Name Issues to Watch For
 - Font packages: `noto-fonts-cjk` → `noto-fonts-cjk-sans`
