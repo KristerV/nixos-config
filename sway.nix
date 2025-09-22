@@ -41,15 +41,18 @@
   # Enable light for backlight control without sudo
   programs.light.enable = true;
 
-  # Redshift for blue light filter
+  # Redshift for blue light filter (Tallinn coordinates from your sway config)
   services.redshift = {
     enable = true;
     temperature = {
       day = 5500;
       night = 3700;
     };
+    location = {
+      latitude = 59.328608;
+      longitude = 24.564767;
+    };
   };
-  # Need to set location in user config or use geoclue
 
   # PolicyKit for authentication dialogs
   security.polkit.enable = true;

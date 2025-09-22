@@ -47,7 +47,10 @@
   };
 
   # Allow unfree packages (needed for Discord, Slack, etc)
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    allowBroken = true;  # Allow broken packages to build
+  };
 
   # Enable sound (pipewire handles this now)
   services.pulseaudio.enable = false; # Using pipewire instead
