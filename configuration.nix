@@ -86,7 +86,7 @@
     curl
     htop
     unzip
-    gnome.gnome-terminal
+    gnome-terminal
   ];
 
   # ZSH configuration
